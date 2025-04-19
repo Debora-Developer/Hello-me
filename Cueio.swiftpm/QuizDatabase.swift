@@ -80,4 +80,12 @@ import SwiftUI
         }
     }
 
+    func answerQuestion(option: Option) -> Bool {
+        if hasFinished() || !option.correct {
+            return false
+        }
+
+        currentIndex += 1
+        return true
+    }
 }

@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct TitleView: View {
-    @Binding public var start : Bool
+    @Binding public var start: Bool
     
     var body: some View {
         Text("Escolher título")

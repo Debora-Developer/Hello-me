@@ -7,7 +7,7 @@ struct ContentView: View {
     var body: some View {
         if start {
             if data.hasFinished() {
-                ResultView(start: $start, mentor: data.getHighestScoreMentor())
+                ResultView(start: $start)
             } else {
                 QuizView()
             }

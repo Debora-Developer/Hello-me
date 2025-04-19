@@ -16,8 +16,10 @@ struct QuizView: View {
                 .font(.headline)
                 .foregroundStyle(.gray)
                 .padding()
+
             Spacer()
                 .frame(height: 64)
+
             Text(data.getCurrentQuestion().text)
                 .font(.title)
                 .bold()
@@ -27,7 +29,8 @@ struct QuizView: View {
             LazyVGrid(columns: columns, spacing: 16, content: {
                 ForEach(data.getCurrentQuestion().options) { option in
                     Button {
-                        data.answerQuestion(mentors: option.mentorsRelated)
+                        // TODO: Mudar a cor do negócio caso seja false
+                        data.answerQuestion(option: option)
                     } label: {
                         VStack {
                             if let text = option.text {
@@ -54,6 +57,7 @@ struct QuizView: View {
                     }
                 }
             })
+
             Spacer()
         }
         .padding(.horizontal, 16)
