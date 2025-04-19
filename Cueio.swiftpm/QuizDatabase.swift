@@ -81,7 +81,7 @@ import SwiftUI
     }
 
     func answerQuestion(option: Option) -> Bool {
-        if hasFinished() || !option.correct {
+        if hasFinished() || !option.correct ?? false {
             return false
         }
 

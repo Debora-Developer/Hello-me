@@ -11,7 +11,7 @@ struct TitleView: View {
     @Binding public var start: Bool
     
     var body: some View {
-        Text("Escolher título")
+        Text("Hello me and my pet")
             .font(.largeTitle)
             .bold()
         Button {
