@@ -23,6 +23,5 @@ struct TitleView: View {
                 .foregroundStyle(.blue)
         }
         .buttonStyle(.bordered)
-
     }
 }

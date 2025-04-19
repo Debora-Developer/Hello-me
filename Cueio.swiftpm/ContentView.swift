@@ -5,15 +5,14 @@ struct ContentView: View {
     @State private var start = false
 
     var body: some View {
-        ResultView(start: $start)
-//        if start {
-//            if data.hasFinished() {
-//                
-//            } else {
-//                QuizView()
-//            }
-//        } else {
-//            TitleView(start: $start)
-//        }
+       if start {
+           if data.hasFinished() {
+               
+           } else {
+               QuizView()
+           }
+       } else {
+           TitleView(start: $start)
+       }
     }
 }
