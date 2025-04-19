@@ -6,11 +6,11 @@ struct ContentView: View {
 
     var body: some View {
        if start {
-           if data.hasFinished() {
-               
-           } else {
-               QuizView()
-           }
+            if data.hasFinished() {
+                ResultView(start: $start)    
+            } else {
+                QuizView()
+            }
        } else {
            TitleView(start: $start)
        }
