@@ -26,7 +26,7 @@ class PhysicsScene: SKScene, SKPhysicsContactDelegate {
 
         // Então vamos transformar o número em string (texto) para coincidir com o nome dos álbuns que importamos no projeto
 
-        let imageName: String = "image_\(sort)" 
+        let imageName: String = "\(sort)" 
 
         // Vamos criar um SPRITE com a imagem do álbum sorteado
         // Pense nos sprites como imagens mais poderosas. Podemos alterar cor, forma, posição e muitos outros atributos. Além disso, os sprites podem possuir corpos físicos, o que permite que eles sejam afetados pela "gravidades", colidam e interajam com outros elementos

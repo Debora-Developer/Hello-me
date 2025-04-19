@@ -33,24 +33,24 @@ struct ResultView: View {
 
     var body: some View {
         ZStack {
-            VStack {
-                Spacer()
-                Text("Parabéns")
-                    .font(.title2)
-                Spacer()
-                Button {
-                    withAnimation(.bouncy) {
-                        data.restartQuiz()
-                        start = false
-                    }
-                } label: {
-                    Text("Refazer Quiz")
-                        .foregroundStyle(.blue)
-                }
-                .buttonStyle(.bordered)
-                Spacer()
-            }
-            .zIndex(1)
+//            VStack {
+//                Spacer()
+//                Text("Parabéns")
+//                    .font(.title2)
+//                Spacer()
+//                Button {
+//                    withAnimation(.bouncy) {
+//                        data.restartQuiz()
+//                        start = false
+//                    }
+//                } label: {
+//                    Text("Refazer Quiz")
+//                        .foregroundStyle(.blue)
+//                }
+//                .buttonStyle(.bordered)
+//                Spacer()
+//            }
+//            .zIndex(1)
 
             SpriteView(scene: scene)
                 .ignoresSafeArea()
