@@ -33,7 +33,7 @@ class PhysicsScene: SKScene, SKPhysicsContactDelegate {
         let album = SKSpriteNode(imageNamed: imageName)
 
         // Ajustando a escala do álbum
-        album.setScale(0.6)
+        album.size=CGSize(width: 100, height: 100)
 
         // Vamos posicionar o sprite na posição clicada na tela. A posição foi recebida pela função addNewImage
         album.position = position
