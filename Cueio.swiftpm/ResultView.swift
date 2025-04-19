@@ -13,25 +13,7 @@ struct ResultView: View {
     }
 
     var body: some View {
-        ZStack {
-            SpriteView(scene: scene)
-                .ignoresSafeArea()
-                .zIndex(0)
-
-            VStack {
-                Spacer()
-                
-                Button {
-                    withAnimation(.bouncy) {
-                        data.restartQuiz()
-                        start = false
-                    }
-                } label: {
-                    Text("Refazer Quiz")
-                        .foregroundStyle(.blue)
-                }
-                .buttonStyle(.bordered)
-            }
-        }
+        SpriteView(scene: scene)
+            .ignoresSafeArea()
     }
 }
