@@ -10,6 +10,7 @@ class PhysicsScene: SKScene, SKPhysicsContactDelegate {
         let borderBody = SKPhysicsBody(edgeLoopFrom: self.frame)
         // Define a parede criada como corpo físico da cena
         self.physicsBody = borderBody
+        backgroundColor = .clear
     }
 
     // Função que recebe a coordenada do ponto clicado na tela
@@ -20,21 +21,22 @@ class PhysicsScene: SKScene, SKPhysicsContactDelegate {
 
     // Função chamada para criar um novo álbum na cena
     func addNewImage(position: CGPoint) {
-
+        let colecao = [1, 2, 3, 9, 10, 11, 12, 14, 16, 18]
         // Vamos começar sorteando um dos 26 álbuns
-        let sort = Int.random(in: 1...5)
+        //let sort = Int.random(in: 1...20)
+        let sort = colecao.randomElement()!
 
         // Então vamos transformar o número em string (texto) para coincidir com o nome dos álbuns que importamos no projeto
 
         let imageName: String = "\(sort)" 
+        print(imageName)
 
         // Vamos criar um SPRITE com a imagem do álbum sorteado
         // Pense nos sprites como imagens mais poderosas. Podemos alterar cor, forma, posição e muitos outros atributos. Além disso, os sprites podem possuir corpos físicos, o que permite que eles sejam afetados pela "gravidades", colidam e interajam com outros elementos
         let album = SKSpriteNode(imageNamed: imageName)
 
         // Ajustando a escala do álbum
-        album.size=CGSize(width: 100, height: 100)
-
+        album.size=CGSize(width: 150, height: 150)
         // Vamos posicionar o sprite na posição clicada na tela. A posição foi recebida pela função addNewImage
         album.position = position
 

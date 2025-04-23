@@ -14,12 +14,10 @@ struct QuizView: View {
         VStack {
             Text("Hello me and my pet")
                 .font(.headline)
-                .foregroundStyle(.gray)
+                .foregroundStyle(.white)
                 .padding()
-
             Spacer()
                 .frame(height: 64)
-
             Text(data.getCurrentQuestion().text)
                 .font(.title)
                 .bold()
@@ -29,7 +27,6 @@ struct QuizView: View {
             LazyVGrid(columns: columns, spacing: 16, content: {
                 ForEach(data.getCurrentQuestion().options) { option in
                     Button {
-                        // TODO: Mudar a cor do negócio caso seja false
                         data.answerQuestion(option: option)
                     } label: {
                         VStack {
@@ -57,9 +54,12 @@ struct QuizView: View {
                     }
                 }
             })
-
             Spacer()
         }
         .padding(.horizontal, 16)
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .background(Image("Dark"))
+        //        .background(Image("nome da imagem"))
     }
 }
+            

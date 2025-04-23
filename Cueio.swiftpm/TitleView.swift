@@ -11,17 +11,30 @@ struct TitleView: View {
     @Binding public var start: Bool
     
     var body: some View {
-        Text("Hello me and my pet")
-            .font(.largeTitle)
-            .bold()
-        Button {
-            withAnimation {
-                start = true
+        VStack{
+//            Text("")
+//                .font(.largeTitle)
+//                .bold()
+            Button {
+                withAnimation {
+                    start = true
+                }
+            } label: {
+                Text("Começar")
+                    .foregroundStyle(.white)
             }
-        } label: {
-            Text("Começar")
-                .foregroundStyle(.blue)
+            .buttonStyle(.bordered)
+            .padding(.top, 150)
+            .tint(Color(red:0.58,green:0.1,blue: 0.5))
         }
-        .buttonStyle(.bordered)
+        .frame(width: 393, height: 852)
+        .background(
+            Image("Coelha")
+                .resizable()
+                .scaledToFill()
+                .ignoresSafeArea()
+        )
+
+//        .background(Image("nome da imagem"))
     }
 }
