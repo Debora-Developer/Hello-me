@@ -1,14 +1,16 @@
 import SwiftUI
 
 struct QuizView: View {
-    // Resgata a instância da variável de ambiente do tipo QuizDatabase criada anteriormente no aplicativo
     @Environment(QuizDatabase.self) private var data
     
-    // Define duas colunas para o Grid
     let columns = [
         GridItem(spacing: 16),
         GridItem()
     ]
+    // @State - deixa reativo 
+    @State private var selectedOption: Option? = nil
+    @State private var isCorrect: Bool? = nil
+    @State private var background = "Fundo2"
     
     var body: some View {
         VStack {
@@ -16,18 +18,19 @@ struct QuizView: View {
                 .font(.headline)
                 .foregroundStyle(.white)
                 .padding()
-            Spacer()
-                .frame(height: 64)
+            
+            Spacer().frame(height: 64)
+            
             Text(data.getCurrentQuestion().text)
                 .font(.title)
                 .bold()
                 .frame(maxWidth: .infinity, alignment: .leading)
             
-            // Grid vertical que exibe as opções de cada pergunta
-            LazyVGrid(columns: columns, spacing: 16, content: {
+            LazyVGrid(columns: columns, spacing: 16) {
                 ForEach(data.getCurrentQuestion().options) { option in
                     Button {
-                        data.answerQuestion(option: option)
+                        selectedOption = option
+                        isCorrect = data.answerQuestion(option: option)
                     } label: {
                         VStack {
                             if let text = option.text {
@@ -49,17 +52,38 @@ struct QuizView: View {
                         .padding(.horizontal, 16)
                         .background {
                             RoundedRectangle(cornerRadius: 12)
-                                .foregroundStyle(.white.opacity(0.1))
+                                .foregroundStyle(backgroundColor(for: option))
                         }
                     }
                 }
-            })
+            }
             Spacer()
         }
         .padding(.horizontal, 16)
-        .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .background(Image("Dark"))
-        //        .background(Image("nome da imagem"))
+        .frame(width: 393, height: 852)
+        .background(
+            Image(background)
+                .resizable()
+                .scaledToFill()
+                .ignoresSafeArea()
+        )
+    }
+    
+    func backgroundColor(for option: Option) -> Color {
+        guard let selected = selectedOption else {
+            return .white.opacity(0.1)
+        }
+        if option.id == selected.id {
+//            return isCorrect == true ? Color.green.opacity(0.6) : Color.red.opacity(0.6)
+            print(background)
+            if (isCorrect!) {
+                background = "Fundo2"
+                return Color.green.opacity(0.6)
+            } else {
+                background = "Fundo4"
+                return Color.red.opacity(0.6)
+            }
+        }
+        return .white.opacity(0.1)
     }
 }
-            

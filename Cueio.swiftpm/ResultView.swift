@@ -15,8 +15,6 @@ struct ResultView: View {
     var body: some View {
         SpriteView(scene: scene)
             .frame(maxWidth: .infinity, maxHeight: .infinity)
-            .background(Color.black)
-        //        .background(Image("nome da imagem"))
             .ignoresSafeArea()
     }
 }

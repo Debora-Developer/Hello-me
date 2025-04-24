@@ -2,6 +2,16 @@ import SpriteKit
 
 // Essa é a cena interativa que é exibida
 class PhysicsScene: SKScene, SKPhysicsContactDelegate {
+    
+    
+    private func setBackground() {
+        let image = SKSpriteNode(imageNamed: "Fundo3")
+        image.name = "Fundo3"
+        
+        image.position = CGPoint(x: frame.midX, y: frame.midY)
+        image.setScale(0.35)
+        addChild(image)
+    }
 
     // Essa parte do código é executada logo que a cena começa
     override func didMove(to view: SKView) {
@@ -10,7 +20,8 @@ class PhysicsScene: SKScene, SKPhysicsContactDelegate {
         let borderBody = SKPhysicsBody(edgeLoopFrom: self.frame)
         // Define a parede criada como corpo físico da cena
         self.physicsBody = borderBody
-        backgroundColor = .clear
+        backgroundColor = .white
+        setBackground()
     }
 
     // Função que recebe a coordenada do ponto clicado na tela

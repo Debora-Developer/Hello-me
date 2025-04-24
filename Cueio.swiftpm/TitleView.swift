@@ -28,8 +28,7 @@ struct TitleView: View {
             .tint(Color(red:0.58,green:0.1,blue: 0.5))
         }
         .frame(width: 393, height: 852)
-        .background(
-            Image("Coelha")
+        .background(Image("Fundo1.1")
                 .resizable()
                 .scaledToFill()
                 .ignoresSafeArea()

@@ -5,9 +5,10 @@ struct ContentView: View {
     @State private var start = false
 
     var body: some View {
+//        QuizView()
        if start {
             if data.hasFinished() {
-                ResultView(start: $start)    
+                ResultView(start: $start)  
             } else {
                 QuizView()
             }
